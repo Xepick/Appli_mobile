@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+        <script src="Liste.js"></script>
+        <title>Liste de choses à faire</title>
+        <link rel="stylesheet" href="/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body ng-app="RoflList">
+    <div ng-controller="mainController" class="container">
+        <div class="col">
+            <h1>Application To Do List : </h1>
+            <table class="table table-bordered" id="todo-list">
+                <caption>Nombre des choses à faire : {{ laliste.length }}.</caption>
+                <thead class="thead-dark">
+                    <tr>
+                    <th scope="col"> # </th>
+                    <th scope="col">Delete</th>
+                    <th scope="col">Check</th>
+                    <th scope="col">Modify</th>
+                    <th scope="col">Task</th>
+                    <th scope="col">Creation Date</th>
+                    </tr>
+                </thead>
+                <tr ng-repeat="aTask in laliste" ng-style="taskDone(aTask.done)">
+                    <th scope="col">{{ $index }}</th>
+                    <th scope="col">
+                        <button class="btn btn-danger" ng-click="deleteTodo(aTask._id)"> x </button>
+                    </th>
+                    <th scope="col">                                                    
+                        <button class="btn btn-success" id="btn-done-{{ $index }}" ng-click="checkTodo(aTask._id, !aTask.done, $index)">Check</button>
+                    </th>
+                    <th scope="col">
+                            <button class="btn btn-primary" id="btn-modify-{{ $index }}" ng-click="modifyTodo(aTask, $index)">Modifier</button>
+                    </th>
+                    <th scope="col" id="xtext-{{ $index }}">{{ aTask.text }}</th> 
+                    <th scope="col" id="xtextmodify-{{$index}}" style="display: none;" class="form-group">
+                            <input type="text" class="form-control" ng-model="formModify.text" value="{{ aTask.text }}">
+                    </th>
+                    <th scope="col">{{ aTask.date | date:'dd/MM/yyyy à HH:mm' }}</th>
+                </tr>
+            </table>
+
+            <div id="todo-form">
+                <form class="input-group flex-nowrap">
+                    <input type="text" class="form-control" placeholder="écrire quelque chose" ng-model="formData.text"> 
+                    <button type="submit" class="btn btn-primary" ng-click="createTodo()">Ajouter</button>
+                </form>
+            </div>
+
+
+            <form class="input-group flex-nowrap">
+                <button type="submit" class="btn btn-danger" ng-click="delCheckedTask()" value="Vider">Supprimer les tâches effectués</button>
+            </form>
+
+
+            <form class="input-group flex-nowrap">
+                <button type="submit" class="btn btn-danger" ng-click="retourListes()" value="Vider">Revenir aux listes</button>
+            </form>
+        </div>
+</body>
+
+</html>

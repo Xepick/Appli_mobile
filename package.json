@@ -1,0 +1,30 @@
+{
+  "name": "applimobile",
+  "version": "1.0.0",
+  "description": "version web avec nodejs de lappli",
+  "main": "server.js",
+  "dependencies": {
+    "cookie-parser": "^1.4.4",
+    "cors": "^2.8.5",
+    "express-session": "^1.16.1",
+    "express": "^4.16.4",
+    "morgan": "^1.9.1",
+    "mongodb": "^3.2.3",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Xepick/Appli_mobile.git"
+  },
+  "author": "Gasquet Martin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Xepick/Appli_mobile/issues"
+  },
+  "homepage": "https://github.com/Xepick/Appli_mobile#readme"
+}

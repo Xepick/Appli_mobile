@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+    <script src="Signup.js"></script>
+    <title>Connexion Page</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body ng-app="SignupApp">
+    <div ng-controller="mainController">
+        <input ng-model="username" type="text" placeholder="Entrez un username">
+        <input ng-model="password" type="password" placeholder="Entrez password">
+        <button ng-click="sendData()">S'inscrire</button>
+    </div>
+</body>
+
+</html>
