@@ -6,7 +6,7 @@ function mainController($scope, $http, $window) {
         console.log($scope.username);
         console.log($scope.password)
         console.log("SendData Triggered")
-        $http.post('http://localhost:8081/Signup/'+$scope.username+'/'+$scope.password).success(function (cb) {
+        $http.post('/Signup/'+$scope.username+'/'+$scope.password).success(function (cb) {
             console.log("Succesfully POST le cookie /");
             console.log(cb)
             if (cb == 'OK') {
